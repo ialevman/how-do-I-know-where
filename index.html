@@ -28,10 +28,10 @@
             position: absolute;
             top: 50%;
             left: 50%;
-            width: 200px;
-            height: 200px;
-            margin-top: -100px;
-            margin-left: -100px;
+            width: 400px;
+            height: 400px;
+            margin-top: -200px;
+            margin-left: -200px;
             background: radial-gradient(circle, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.7) 30%, rgba(0, 0, 0, 0) 70%);
             border-radius: 50%;
             box-shadow: 0 0 100px 50px rgba(0, 0, 0, 0.7);
@@ -57,16 +57,34 @@
         .text {
             position: absolute;
             color: white;
-            font-size: 50px;
+            font-size: 100px;
             text-align: center;
             width: 100%;
             top: 40%;
-            transform: perspective(300px) rotateX(10deg) rotateY(25deg);
+            transform: perspective(600px) rotateX(20deg) rotateY(30deg);
         }
 
         .text span {
             display: inline-block;
-            transform: rotateZ(-10deg) skewX(10deg) skewY(-5deg);
+            transform: rotateZ(-20deg) skewX(20deg) skewY(-10deg);
+        }
+
+        @keyframes spiral {
+            0% {
+                transform: translate(-50%, -50%) rotate(0deg) scale(1);
+            }
+            100% {
+                transform: translate(-50%, -50%) rotate(360deg) scale(0.1);
+            }
+        }
+
+        .letter {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            color: white;
+            font-size: 100px;
+            animation: spiral 5s linear infinite;
         }
     </style>
 </head>
@@ -74,26 +92,7 @@
     <div class="universe">
         <div class="stars" id="stars"></div>
         <div class="black-hole"></div>
-        <div class="text">
-            <span>о</span>
-            <span>т</span>
-            <span>к</span>
-            <span>у</span>
-            <span>д</span>
-            <span>а</span>
-            <span> </span>
-            <span>я</span>
-            <span> </span>
-            <span>з</span>
-            <span>н</span>
-            <span>а</span>
-            <span>ю</span>
-            <span> </span>
-            <span>к</span>
-            <span>у</span>
-            <span>д</span>
-            <span>а</span>
-        </div>
+        <div class="text" id="text"></div>
     </div>
 
     <script>
@@ -104,14 +103,24 @@
                 star.className = 'star';
                 star.style.top = `${Math.random() * 100}%`;
                 star.style.left = `${Math.random() * 100}%`;
-                star.style.animationDelay = `${Math.random() * 2}s`;
                 starsContainer.appendChild(star);
             }
         }
 
+        function createText() {
+            const textContainer = document.getElementById('text');
+            const text = "откуда я знаю куда";
+            for (let i = 0; i < text.length; i++) {
+                const letter = document.createElement('span');
+                letter.className = 'letter';
+                letter.textContent = text[i];
+                letter.style.animationDelay = `${i * 0.1}s`;
+                textContainer.appendChild(letter);
+            }
+        }
+
         createStars();
+        createText();
     </script>
 </body>
 </html>
-
-
