@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Вселенная с черной дырой</title>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            background: black;
+            color: white;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        #universe {
+            position: relative;
+            width: 100vw;
+            height: 100vh;
+            overflow: hidden;
+        }
+        .black-hole {
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
+            border-radius: 50%;
+            animation: spin 10s linear infinite;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+        }
+        @keyframes spin {
+            from {
+                transform: translate(-50%, -50%) rotate(0deg);
+            }
+            to {
+                transform: translate(-50%, -50%) rotate(360deg);
+            }
+        }
+        .text {
+            position: absolute;
+            font-size: 3rem;
+            color: white;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+            animation: float 10s infinite alternate;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+        }
+        @keyframes float {
+            0% { transform: translate(-50%, -50%); }
+            100% { transform: translate(-50%, -60%); }
+        }
+        .letter {
+            position: relative;
+            display: inline-block;
+            animation: distort 3s infinite alternate;
+        }
+        @keyframes distort {
+            0% { transform: translate(0, 0) scale(1); }
+            100% { transform: translate(calc(var(--dx, 0) * 1px), calc(var(--dy, 0) * 1px)) scale(var(--scale, 1)); }
+        }
+    </style>
+</head>
+<body>
+    <div id="universe">
+        <div class="black-hole"></div>
+        <div class="text">
+            <span class="letter" style="--dx: -10; --dy: -20; --scale: 1.2;">о</span>
+            <span class="letter" style="--dx: 20; --dy: 10; --scale: 0.8;">т</span>
+            <span class="letter" style="--dx: -30; --dy: 5; --scale: 1.1;">к</span>
+            <span class="letter" style="--dx: 15; --dy: -10; --scale: 1;">у</span>
+            <span class="letter" style="--dx: -10; --dy: 20; --scale: 1.3;">д</span>
+            <span class="letter" style="--dx: 5; --dy: -15; --scale: 0.9;">а</span>
+            <span class="letter" style="--dx: 0; --dy: 0; --scale: 1;"> </span>
+            <span class="letter" style="--dx: -20; --dy: 10; --scale: 1;">я</span>
+            <span class="letter" style="--dx: 15; --dy: -20; --scale: 1.2;"> </span>
+            <span class="letter" style="--dx: 10; --dy: 20; --scale: 0.7;">з</span>
+            <span class="letter" style="--dx: -15; --dy: -5; --scale: 1.3;">н</span>
+            <span class="letter" style="--dx: 20; --dy: 15; --scale: 0.8;">а</span>
+            <span class="letter" style="--dx: -5; --dy: -10; --scale: 1.1;">ю</span>
+            <span class="letter" style="--dx: 10; --dy: 10; --scale: 1.4;"> </span>
+            <span class="letter" style="--dx: -20; --dy: 15; --scale: 0.9;">к</span>
+            <span class="letter" style="--dx: 15; --dy: -15; --scale: 1.2;">у</span>
+            <span class="letter" style="--dx: 5; --dy: 5; --scale: 0.8;">д</span>
+            <span class="letter" style="--dx: -10; --dy: -20; --scale: 1.3;">а</span>
+        </div>
+    </div>
+</body>
+</html>
