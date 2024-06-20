@@ -43,49 +43,51 @@
             font-size: 200px;
             text-align: center;
             width: 100%;
-            top: -1000px;
-            animation: appearAndDisappear 10s linear forwards;
+            top: 40%; /* Положение фразы в середине экрана */
+            opacity: 0;
+            animation: appearAndDisappear 15s linear forwards;
         }
 
-        .letter {
+        .word {
             position: absolute;
-            top: 0;
-            left: 50%;
             color: white;
             font-size: 200px;
             opacity: 0;
-            transform: translateY(-100vh) scale(5); /* Начальное положение за пределами экрана */
-            animation: fallAndShrink 10s linear forwards;
-            transform-origin: 0 0;
+            transform: translateX(-100vw); /* Начальное положение за пределами экрана слева */
+            animation: appearWord 5s linear forwards;
         }
 
         @keyframes appearAndDisappear {
             0% {
-                top: -1000px;
                 opacity: 0;
-                transform: scale(5);
             }
-            20% {
+            10% {
                 opacity: 1;
             }
-            80% {
+            90% {
                 opacity: 1;
             }
             100% {
-                top: 40%;
                 opacity: 0;
-                transform: scale(0.1);
             }
         }
 
-        @keyframes fallAndShrink {
+        @keyframes appearWord {
             0% {
+                transform: translateX(-100vw); /* Начальное положение за пределами экрана слева */
+                opacity: 0;
+            }
+            20% {
+                transform: translateX(10%); /* Появление на экране */
                 opacity: 1;
-                transform: translateY(-100vh) scale(5); /* Начальное положение за пределами экрана */
+            }
+            80% {
+                transform: translateX(90%); /* Появление в крайней правой части экрана */
+                opacity: 1;
             }
             100% {
+                transform: translateX(100vw); /* Исчезновение за пределами экрана справа */
                 opacity: 0;
-                transform: translateY(50vh) scale(0.1); /* Конечное положение в центре экрана */
             }
         }
     </style>
@@ -93,24 +95,13 @@
 <body>
     <div class="universe">
         <div class="black-hole"></div>
-        <div class="text" id="text"></div>
+        <div class="text" id="text">
+            <div class="word" style="animation-delay: 0s;">откуда</div>
+            <div class="word" style="animation-delay: 5s;">я</div>
+            <div class="word" style="animation-delay: 10s;">знаю</div>
+            <div class="word" style="animation-delay: 15s;">куда</div>
+        </div>
     </div>
-
-    <script>
-        function createText() {
-            const textContainer = document.getElementById('text');
-            const text = "откуда я знаю куда";
-            for (let i = 0; i < text.length; i++) {
-                const letter = document.createElement('div');
-                letter.className = 'letter';
-                letter.textContent = text[i];
-                letter.style.animationDelay = `${i * 0.5}s`; // Увеличили интервал между буквами
-                textContainer.appendChild(letter);
-            }
-        }
-
-        createText();
-    </script>
 </body>
 </html>
 
