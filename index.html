@@ -70,13 +70,13 @@
             left: 50%;
             color: white;
             font-size: 100px;
-            animation: spiral 5s linear infinite;
+            animation: spiral 10s linear infinite;
             transform-origin: 0 0;
         }
 
         @keyframes spiral {
-            0% {
-                transform: rotate(0deg) translateX(0) translateY(0) scale(1);
+            0%, 80% {
+                transform: translate(0, 0) scale(1);
             }
             100% {
                 transform: rotate(360deg) translateX(100px) translateY(100px) scale(0.1);
@@ -110,7 +110,7 @@
                 const letter = document.createElement('div');
                 letter.className = 'letter';
                 letter.textContent = text[i];
-                letter.style.animationDelay = `${i * 0.2}s`;
+                letter.style.animationDelay = `${i * 1}s`;  // увеличиваем интервал между падениями букв
                 textContainer.appendChild(letter);
             }
         }
