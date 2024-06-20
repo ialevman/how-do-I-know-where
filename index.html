@@ -43,65 +43,71 @@
             font-size: 200px;
             text-align: center;
             width: 100%;
-            top: 40%; /* Положение фразы в середине экрана */
-            opacity: 0;
-            animation: appearAndDisappear 15s linear forwards;
+            height: 100%;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
         }
 
         .word {
-            position: absolute;
             color: white;
             font-size: 200px;
             opacity: 0;
-            transform: translateX(-100vw); /* Начальное положение за пределами экрана слева */
-            animation: appearWord 5s linear forwards;
+            animation: appearAndDisappear 10s linear forwards;
+            animation-delay: 0s;
+            position: absolute;
+            transform: scale(5);
         }
 
         @keyframes appearAndDisappear {
             0% {
-                opacity: 0;
-            }
-            10% {
                 opacity: 1;
-            }
-            90% {
-                opacity: 1;
+                transform: scale(5) translateY(-50vh) translateX(-50vw);
             }
             100% {
                 opacity: 0;
+                transform: scale(0) translateY(0) translateX(0);
             }
         }
 
-        @keyframes appearWord {
-            0% {
-                transform: translateX(-100vw); /* Начальное положение за пределами экрана слева */
-                opacity: 0;
-            }
-            20% {
-                transform: translateX(10%); /* Появление на экране */
-                opacity: 1;
-            }
-            80% {
-                transform: translateX(90%); /* Появление в крайней правой части экрана */
-                opacity: 1;
-            }
-            100% {
-                transform: translateX(100vw); /* Исчезновение за пределами экрана справа */
-                opacity: 0;
-            }
+        /* Позиции для разных сторон экрана */
+        .word:nth-child(1) {
+            top: 10%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+
+        .word:nth-child(2) {
+            top: 10%;
+            right: 10%;
+            animation-delay: 2s;
+        }
+
+        .word:nth-child(3) {
+            bottom: 10%;
+            left: 10%;
+            animation-delay: 4s;
+        }
+
+        .word:nth-child(4) {
+            bottom: 10%;
+            right: 10%;
+            animation-delay: 6s;
         }
     </style>
 </head>
 <body>
     <div class="universe">
         <div class="black-hole"></div>
-        <div class="text" id="text">
-            <div class="word" style="animation-delay: 0s;">откуда</div>
-            <div class="word" style="animation-delay: 5s;">я</div>
-            <div class="word" style="animation-delay: 10s;">знаю</div>
-            <div class="word" style="animation-delay: 15s;">куда</div>
+        <div class="text">
+            <div class="word">откуда</div>
+            <div class="word">я</div>
+            <div class="word">знаю</div>
+            <div class="word">куда</div>
         </div>
     </div>
 </body>
 </html>
+
 
