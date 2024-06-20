@@ -37,31 +37,14 @@
             box-shadow: 0 0 100px 50px rgba(0, 0, 0, 0.7);
         }
 
-        .stars {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: transparent;
-        }
-
-        .star {
-            position: absolute;
-            width: 2px;
-            height: 2px;
-            background: white;
-            border-radius: 50%;
-        }
-
         .text {
             position: absolute;
             color: white;
-            font-size: 100px;
+            font-size: 200px;
             text-align: center;
             width: 100%;
-            top: 40%;
-            transform: perspective(600px) rotateX(20deg) rotateY(30deg);
+            top: -1000px;
+            animation: appearAndDisappear 10s linear forwards;
         }
 
         .letter {
@@ -69,9 +52,28 @@
             top: 50%;
             left: 50%;
             color: white;
-            font-size: 100px;
+            font-size: 200px;
             animation: spiral 10s linear infinite;
             transform-origin: 0 0;
+        }
+
+        @keyframes appearAndDisappear {
+            0% {
+                top: -1000px;
+                opacity: 0;
+                transform: scale(5);
+            }
+            20% {
+                opacity: 1;
+            }
+            80% {
+                opacity: 1;
+            }
+            100% {
+                top: 40%;
+                opacity: 0;
+                transform: scale(0.1);
+            }
         }
 
         @keyframes spiral {
@@ -86,23 +88,11 @@
 </head>
 <body>
     <div class="universe">
-        <div class="stars" id="stars"></div>
         <div class="black-hole"></div>
         <div class="text" id="text"></div>
     </div>
 
     <script>
-        function createStars() {
-            const starsContainer = document.getElementById('stars');
-            for (let i = 0; i < 500; i++) {
-                const star = document.createElement('div');
-                star.className = 'star';
-                star.style.top = `${Math.random() * 100}%`;
-                star.style.left = `${Math.random() * 100}%`;
-                starsContainer.appendChild(star);
-            }
-        }
-
         function createText() {
             const textContainer = document.getElementById('text');
             const text = "откуда я знаю куда";
@@ -110,12 +100,11 @@
                 const letter = document.createElement('div');
                 letter.className = 'letter';
                 letter.textContent = text[i];
-                letter.style.animationDelay = `${i * 1}s`;  // увеличиваем интервал между падениями букв
+                letter.style.animationDelay = `${i * 0.5}s`; // Увеличили интервал между буквами
                 textContainer.appendChild(letter);
             }
         }
 
-        createStars();
         createText();
     </script>
 </body>
