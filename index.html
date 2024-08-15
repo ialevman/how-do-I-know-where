@@ -50,14 +50,11 @@
         }
 
         @keyframes repeatPhrase {
-            0% {
-                opacity: 1;
-            }
-            90% {
+            0%, 10% {
                 opacity: 1;
             }
             100% {
-                opacity: 0;
+                opacity: 1;
             }
         }
 
@@ -66,19 +63,19 @@
             font-size: 400px;
             position: absolute;
             opacity: 0;
-            animation: appearAndDisappear 2s linear forwards;
+            animation: appearAndDisappear 10s linear infinite;
         }
 
         @keyframes appearAndDisappear {
-            0% {
+            0%, 20% {
                 opacity: 0;
                 transform: scale(5);
             }
-            50% {
+            25%, 45% {
                 opacity: 1;
                 transform: scale(1);
             }
-            100% {
+            50%, 100% {
                 opacity: 0;
                 transform: scale(0.1);
             }
@@ -120,3 +117,4 @@
     </div>
 </body>
 </html>
+
