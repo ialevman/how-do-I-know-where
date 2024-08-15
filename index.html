@@ -1,10 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Black Hole Universe</title>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Marck+Script&display=swap');
+
         body, html {
             margin: 0;
             padding: 0;
@@ -15,7 +17,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            font-family: Arial, sans-serif;
+            font-family: 'Marck Script', cursive;
         }
 
         .universe {
@@ -48,48 +50,40 @@
 
         .word {
             color: white;
-            font-size: 100px;
+            font-size: 400px;
             position: absolute;
             opacity: 0;
-            animation: moveToCenter 4s ease-in-out forwards;
+            animation: appearAndDisappear 4s ease-in-out forwards;
         }
 
-        @keyframes moveToCenter {
+        @keyframes appearAndDisappear {
             0% {
                 opacity: 0;
-                transform: translate(var(--start-x), var(--start-y)) scale(0.5);
+                transform: scale(5);
             }
             50% {
                 opacity: 1;
-                transform: translate(0, 0) scale(1);
+                transform: scale(1);
             }
             100% {
                 opacity: 0;
-                transform: translate(-50%, -50%) scale(0.1);
+                transform: scale(0.1);
             }
         }
 
         .word:nth-child(1) {
-            --start-x: -150%;
-            --start-y: -150%;
             animation-delay: 0s;
         }
 
         .word:nth-child(2) {
-            --start-x: 150%;
-            --start-y: -150%;
             animation-delay: 4s;
         }
 
         .word:nth-child(3) {
-            --start-x: -150%;
-            --start-y: 150%;
             animation-delay: 8s;
         }
 
         .word:nth-child(4) {
-            --start-x: 150%;
-            --start-y: 150%;
             animation-delay: 12s;
         }
     </style>
@@ -98,12 +92,11 @@
     <div class="universe">
         <div class="black-hole"></div>
         <div class="text">
-            <div class="word">Where</div>
-            <div class="word">am</div>
-            <div class="word">I</div>
-            <div class="word">going</div>
+            <div class="word">Куда</div>
+            <div class="word">я</div>
+            <div class="word">иду</div>
+            <div class="word">сейчас</div>
         </div>
     </div>
 </body>
 </html>
-
