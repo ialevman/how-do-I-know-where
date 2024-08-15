@@ -53,7 +53,7 @@
             font-size: 400px;
             position: absolute;
             opacity: 0;
-            animation: appearAndDisappear 4s ease-in-out forwards;
+            animation: appearAndDisappear 3s linear infinite;
         }
 
         @keyframes appearAndDisappear {
@@ -61,11 +61,11 @@
                 opacity: 0;
                 transform: scale(5);
             }
-            25% {
+            20% {
                 opacity: 1;
                 transform: scale(1);
             }
-            75% {
+            80% {
                 opacity: 1;
                 transform: scale(1);
             }
@@ -75,27 +75,27 @@
             }
         }
 
-        /* Появление слов по очереди с паузой */
+        /* Настройка задержки для последовательного появления слов */
         .word:nth-child(1) {
-            animation-delay: calc(0s);
+            animation-delay: 0s;
         }
 
         .word:nth-child(2) {
-            animation-delay: calc(4s * 1.5);
+            animation-delay: 3s;
         }
 
         .word:nth-child(3) {
-            animation-delay: calc(4s * 3);
+            animation-delay: 6s;
         }
 
         .word:nth-child(4) {
-            animation-delay: calc(4s * 4.5);
+            animation-delay: 9s;
         }
 
-        /* Повторение цикла 9 раз */
-        .word {
-            animation-iteration-count: 9;
+        .word:nth-child(5) {
+            animation-delay: 12s;
         }
+
     </style>
 </head>
 <body>
@@ -106,7 +106,9 @@
             <div class="word">am</div>
             <div class="word">I</div>
             <div class="word">going</div>
+            <div class="word">?</div>
         </div>
     </div>
 </body>
 </html>
+
