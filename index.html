@@ -81,7 +81,7 @@
             }
         }
 
-        /* Настройка задержки для последовательного появления слов */
+        /* Задержка анимации для последовательного появления слов */
         .word:nth-child(1) {
             animation-delay: 0s;
         }
@@ -102,6 +102,33 @@
             animation-delay: 8s;
         }
 
+        /* Адаптивность для мобильных устройств */
+        @media (max-width: 768px) {
+            .word {
+                font-size: 200px; /* Уменьшение размера текста для планшетов и мобильных устройств */
+            }
+
+            .black-hole {
+                width: 150px;
+                height: 150px;
+                margin-top: -75px;
+                margin-left: -75px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .word {
+                font-size: 150px; /* Еще меньше для телефонов */
+            }
+
+            .black-hole {
+                width: 100px;
+                height: 100px;
+                margin-top: -50px;
+                margin-left: -50px;
+            }
+        }
+
     </style>
 </head>
 <body>
@@ -117,4 +144,5 @@
     </div>
 </body>
 </html>
+
 
