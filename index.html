@@ -61,7 +61,11 @@
                 opacity: 0;
                 transform: scale(5);
             }
-            50% {
+            25% {
+                opacity: 1;
+                transform: scale(1);
+            }
+            75% {
                 opacity: 1;
                 transform: scale(1);
             }
@@ -71,21 +75,21 @@
             }
         }
 
-        /* Появление слов по очереди */
+        /* Появление слов по очереди с паузой */
         .word:nth-child(1) {
-            animation-delay: calc(0s + 0s);
+            animation-delay: calc(0s);
         }
 
         .word:nth-child(2) {
-            animation-delay: calc(4s * 1 + 0s);
+            animation-delay: calc(4s * 1.5);
         }
 
         .word:nth-child(3) {
-            animation-delay: calc(4s * 2 + 0s);
+            animation-delay: calc(4s * 3);
         }
 
         .word:nth-child(4) {
-            animation-delay: calc(4s * 3 + 0s);
+            animation-delay: calc(4s * 4.5);
         }
 
         /* Повторение цикла 9 раз */
@@ -106,5 +110,3 @@
     </div>
 </body>
 </html>
-
-
