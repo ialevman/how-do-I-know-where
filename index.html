@@ -39,13 +39,9 @@
 
         .text {
             position: absolute;
-            color: white;
-            font-size: 200px;
-            text-align: center;
             width: 100%;
             height: 100%;
             display: flex;
-            flex-wrap: wrap;
             justify-content: center;
             align-items: center;
         }
@@ -54,45 +50,46 @@
             color: white;
             font-size: 200px;
             opacity: 0;
-            animation: appearAndDisappear 10s linear forwards;
             position: absolute;
             font-family: Arial Narrow, Arial, sans-serif;
+            display: flex;
         }
 
-        @keyframes appearAndDisappear {
+        .letter {
+            opacity: 0;
+            position: absolute;
+            animation: moveToCenter 4s ease-in-out forwards;
+        }
+
+        @keyframes moveToCenter {
             0% {
+                opacity: 0;
+                transform: translate(var(--start-x), var(--start-y)) scale(2);
+            }
+            50% {
                 opacity: 1;
-                transform: translate(-50%, -50%) scale(2);
+                transform: translate(0, 0) scale(1);
             }
             100% {
                 opacity: 0;
-                transform: translate(-50%, -50%) scale(0.1);
+                transform: translate(0, 0) scale(0.1);
             }
         }
 
-        /* Позиции для разных слов */
         .word:nth-child(1) {
-            top: 5%;
-            left: 30%;
             animation-delay: 0s;
         }
 
         .word:nth-child(2) {
-            top: 10%;
-            left: 70%;
-            animation-delay: 2s;
-        }
-
-        .word:nth-child(3) {
-            bottom: 20%;
-            left: 30%;
             animation-delay: 4s;
         }
 
+        .word:nth-child(3) {
+            animation-delay: 8s;
+        }
+
         .word:nth-child(4) {
-            bottom: 5%;
-            left: 70%;
-            animation-delay: 6s;
+            animation-delay: 12s;
         }
     </style>
 </head>
@@ -100,12 +97,30 @@
     <div class="universe">
         <div class="black-hole"></div>
         <div class="text">
-            <div class="word">откуда</div>
-            <div class="word">я</div>
-            <div class="word">знаю</div>
-            <div class="word">куда</div>
+            <div class="word" style="animation-delay: 0s;">
+                <span class="letter" style="--start-x: -100%; --start-y: -100%;">W</span>
+                <span class="letter" style="--start-x: 100%; --start-y: -100%;">h</span>
+                <span class="letter" style="--start-x: -100%; --start-y: 100%;">e</span>
+                <span class="letter" style="--start-x: 100%; --start-y: 100%;">r</span>
+                <span class="letter" style="--start-x: -100%; --start-y: -100%;">e</span>
+            </div>
+            <div class="word" style="animation-delay: 4s;">
+                <span class="letter" style="--start-x: -100%; --start-y: -100%;">a</span>
+                <span class="letter" style="--start-x: 100%; --start-y: -100%;">m</span>
+            </div>
+            <div class="word" style="animation-delay: 8s;">
+                <span class="letter" style="--start-x: -100%; --start-y: 100%;">I</span>
+            </div>
+            <div class="word" style="animation-delay: 12s;">
+                <span class="letter" style="--start-x: -100%; --start-y: 100%;">g</span>
+                <span class="letter" style="--start-x: 100%; --start-y: 100%;">o</span>
+                <span class="letter" style="--start-x: -100%; --start-y: -100%;">i</span>
+                <span class="letter" style="--start-x: 100%; --start-y: -100%;">n</span>
+                <span class="letter" style="--start-x: -100%; --start-y: 100%;">g</span>
+            </div>
         </div>
     </div>
 </body>
 </html>
+Объяснение изменений:
 
