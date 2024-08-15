@@ -49,15 +49,15 @@
         .word {
             color: white;
             font-size: 200px;
-            opacity: 0;
             position: absolute;
             font-family: Arial Narrow, Arial, sans-serif;
+            opacity: 0;
             display: flex;
         }
 
         .letter {
-            opacity: 0;
             position: absolute;
+            opacity: 0;
             animation: moveToCenter 4s ease-in-out forwards;
         }
 
@@ -68,59 +68,4 @@
             }
             50% {
                 opacity: 1;
-                transform: translate(0, 0) scale(1);
-            }
-            100% {
-                opacity: 0;
-                transform: translate(0, 0) scale(0.1);
-            }
-        }
-
-        .word:nth-child(1) {
-            animation-delay: 0s;
-        }
-
-        .word:nth-child(2) {
-            animation-delay: 4s;
-        }
-
-        .word:nth-child(3) {
-            animation-delay: 8s;
-        }
-
-        .word:nth-child(4) {
-            animation-delay: 12s;
-        }
-    </style>
-</head>
-<body>
-    <div class="universe">
-        <div class="black-hole"></div>
-        <div class="text">
-            <div class="word" style="animation-delay: 0s;">
-                <span class="letter" style="--start-x: -100%; --start-y: -100%;">W</span>
-                <span class="letter" style="--start-x: 100%; --start-y: -100%;">h</span>
-                <span class="letter" style="--start-x: -100%; --start-y: 100%;">e</span>
-                <span class="letter" style="--start-x: 100%; --start-y: 100%;">r</span>
-                <span class="letter" style="--start-x: -100%; --start-y: -100%;">e</span>
-            </div>
-            <div class="word" style="animation-delay: 4s;">
-                <span class="letter" style="--start-x: -100%; --start-y: -100%;">a</span>
-                <span class="letter" style="--start-x: 100%; --start-y: -100%;">m</span>
-            </div>
-            <div class="word" style="animation-delay: 8s;">
-                <span class="letter" style="--start-x: -100%; --start-y: 100%;">I</span>
-            </div>
-            <div class="word" style="animation-delay: 12s;">
-                <span class="letter" style="--start-x: -100%; --start-y: 100%;">g</span>
-                <span class="letter" style="--start-x: 100%; --start-y: 100%;">o</span>
-                <span class="letter" style="--start-x: -100%; --start-y: -100%;">i</span>
-                <span class="letter" style="--start-x: 100%; --start-y: -100%;">n</span>
-                <span class="letter" style="--start-x: -100%; --start-y: 100%;">g</span>
-            </div>
-        </div>
-    </div>
-</body>
-</html>
-Объяснение изменений:
-
+                transform: translate
